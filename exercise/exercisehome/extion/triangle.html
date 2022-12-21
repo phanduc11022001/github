@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../font copy/fontawesome-free-6.2.0-web/css/all.css"
+    />
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(255, 253, 253);
+    }
+
+    .rikbon {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      position: relative;
+      width: 200px;
+      height: 140px;
+      margin-top: 50px;
+      background-color: #fff;
+      border: 1px solid rgb(1, 1, 1);
+      border-radius: 20px;
+    }
+
+    .rikbon::after,
+    .rikbon::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 30px;
+      border: 1px solid;
+      top: -9px;
+      z-index: -2;
+      border-radius: 3px;
+      transform: rotate(45deg);
+    }
+    .rikbon::before {
+      background-color: #fff;
+      z-index: 2;
+      top: -8px;
+      left: 31px;
+      border: none;
+    }
+  </style>
+  <body>
+    <div class="rikbon">xin chào tất cả các bạn</div>
+  </body>
+</html>

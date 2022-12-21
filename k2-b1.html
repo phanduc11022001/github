@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        cách hoạt động của browser :
+        Browser => dns => ip => response
+        + trình duyệt kết nối đến địa chỉ ip => tải thông tin về
+            + trình duyệt gửi một request( phản hồi) lên sever( máy chủ)
+            + Máy chủ = > trả về response(phản hồi)
+            + hiển thị response => trang wep
+
+        HTTP request: hyper text transfer protocal
+            + Không liên tục 
+            + Status: Trạng thái http status
+                + 200 : thành công
+                + 404 : Không tim thấy
+                + 401 : không có quyền truy cập
+                + 500 : lỗi sever ( không xác định)
+                + 503 : đang bảo trì
+            + Mỗi requets gồm 2 phần :
+                + requets header
+                + requets body
+        Các thẻ trong html:
+         + meta : thông tin thêm
+
+        -White Space: dấu cách
+
+        Các thẻ HTML thông dụng :
+         - p (paragrap) : thẻ đoạn văn
+         - h1 -> h6(heading) : mỗi trang chỉ có 1 h1
+         - div (division)
+         - section : nhóm các phần con thành mặt nội dung
+         - ul (un-oder-list)
+         - ol (oder list)
+         - form
+         - table : tr / th/ td
+         - blackquest : trích dẫn
+         - span : chỉ có ý về mặt định dạng và không có ý nghĩa về mặt nội dung
+         - form : vùng để nhập dữ liệu
+         - lable :nhãn
+         - fieldset : để nhóm 1 khối input
+         - strong : nhấn mạnh nội cần chú ý
+         - strike : thẻ gạch ngang
+         - header :
+         - footer : 
+         - side bar :
+         - Phân loại các thẻ element :
+         + block element 
+            mặc định trên 1 hàng riêng của nó
+            p,div,secsion,header,footer,side bar,form, h1->h6
+        + inline element :
+            sắp xếp trên 1 hàng
+            span, a, img, storng, button, input
+        + Block element chứa được inline element 
+        + inline element không chứa được thẻ block element
+        + block chứa được block
+        
+        ============================
+
+        Cách chia theo tính năng
+        + Thẻ định dạng : chứa các element khác
+        + thẻ nội dung : Viết thẻ này ra hiển thù lên trang web
+
+        + Các thẻ định dạng được chứa các thẻ nội dung
+
+        ===========================
+
+        CSS :
+        - inline CSS
+        - style
+        - file css
+
+        Selector :
+         chọn bằng tên thẻ, class, id
+        Độ ưu tiên trong Css :
+            !importon id class tag 
+        - Chọn thành phần nằm sau
+        ~ chọn tất cả các thành phần ở sau 
+        + chọn 1 thành phần nằm sau
+    Chọn thành phần đầu tiên :
+    first-child : 
+    last-child :
+    nth-child(n) :
+    nth-last-child
+        + có thể là số lẻ(odd) và số chắn(even) 
+        + biến số n
+            * n  là một số chạy từ 0 đến vô cùng 
+    - not() : loại bỏ
+
+    - chọn theo thuộc tính
+    [tên thuộc tính = với giá trị của nó]
+
+    Box model : mô hình hộp
+    margin  : khoảng cách với xung quanh
+    border  : đường viền xung quanh     
+    padding : khoảng cách giữa đường viền và nội dung bên trong
+    block : có thể đặt được w h
+    inline : không thể đặt được w h , cùng hàng
+    inline-block : đặt chung 1 hàng nhưng  mà có thể đặt được chiều rộng và chiều cao
+        1 số thẻ có thuộc tính inline-block:
+        img, button
+    
+    thuộc tính display:
+    inline, block, inline-block 
+
+    thuộc tính background :
+        - background-repeat :  lập lại ảnh
+        - backgruond-size: kích thước 
+        - background-cover : 
+        - background-position : 
+
+    - các thuộc tính của text giống như inline
+        * khi  mà phần tử con được địng danh  là inline
+    
+    letter-spacing : khoảng cách giữa các chữ cái
+    word-spacing : khoẳng cách giữa các từ
+
+    Font :
+    - font-family : danh sách các font luôn để sans-serif ở cuối
+        font-weith: nomar : mỏng; both : đậm.
+    - verticle - align :
+
+    hover : trạng thái di chuột vào thì mới bắt đầu kích hoạt thuộc tính
+    active : trạng thái ấn vào mới bắt đầu kích hoạt thuộc tính 
+    focus: ấn vào thì mới bắt đầu sự kiện   
+    - checket : cho phép tạo ô check box
+        taget: đích đến 
+    Các thuộc tính ảnh hưởng đến khoảng không gian chiếm chỗ của 1 element
+        - width
+        - heith
+        - boder-width
+        - padding
+        - margin
+    
+    Các đơn vị đo
+        html: font-size : 65.5% <=> 10px
+
+        px: picel
+        em : theo font size gần nhất
+        rem :theo font-size đã được đặt sẵn
+        % : 1 % độ rộng của element 
+        pt : 1 point = 1/72 của 1 inch
+        vw : viewport width = 1% của trình duyệt
+        vh : viewport heith = 1% của trình duyệt
+        calc() : hàm tính trong css 
+
+    position :
+    fixed : vị trí tuyệt đối và có thứ tự nằm trên
+    sticky : dán 1 element lên đầu . Không nên dùng bới vì 1 số trình duyệt không hỗ trợ
+    relative : mặc định
+    absulue : vị trí tuyệt đối ( theo relative)
+        
+    z-index:
+
+    text-indent trái phải : căn lề văn bản 
+
+    attr() lấy 1 elemen trong html
+
+    transition : Chuyển tiếp
+
+    transition : [tên thuộc tính] [thời gian] [timing function]
+        - Tên thuộc tính chỉ có thể dung với các loại dạng số và được dùng với color
+        - liener : tăng giảm đều
+    transition-delay : thời gian dừng lại rồi mới chuyển đổi
+
+    overflowd : hidden ẩn đi những thành phần  tràn ra ngoài
+                scroll x, y tạo thanh cuận
+
+    linear-gradient : chuyển tiếp màu
+    linear-gradient(màu 1, màu 2) : chuyể từ trên xuống dưới
+    linear-gradient(độ , màu 1, màu 2)
+    linear-gradient: radial : chạy theo hình tròn
+    linear-gradient: conic-gradient : chạy theo trục dọc
+    linear-gradient: 
+
+    Flex-box :
+        flex-grow : thuộc tính giúp thành phần còn kế thừa tất cả khoẳng trống của phần cha
+        flex-shirnk: thuộc tính lấy của phần con bù cho thằng cha
+        flex-wrap: thành phần cha không đủ chỗ chứa thì thằng con sẽ tự động xuống dòng
+
+    justify-conten: sắp xếp theo trục main
+        centent căn vào giữa
+        space-beeween
+    align-item: sắp xếp theo trục cross asist
+
+    flex-direction:
+        -row : các element sếp thành chiều ngang
+        - column : các element sếp thành chiều dọc
+        
+    float :
+
+    clear: xóa bỏ sự ảnh hưởng của float                
+    clear: both thuộc tính clear float
+    
+    table :
+    border-collapse: collapse
+
+    tranform: biến đôi element, số đo đơn vị được tính theo chính nó
+    transform: tranlateX()
+               tranlateY()
+               tranlate()
+               skew(X,Y)    
+
+    box-shadow : 
+    text-shadow:
+
+    hình ảnh:
+         Nếu có thể hãy đặt chiều rộng và chiều ca cho ảnh
+        Các loại hình ảnh trong 1 web 
+            - jpg/peg : ảnh chụp phong cảnh
+            - png : có các vùng màu đều nhau , ảnh dạng vẽ Hỗ trợ trong suôt / Cân nhắc nên chọn trong suốt hay không   
+            - gif : hỗ trợ trong suốt/ ảnh động / răng cưa
+            - webp : nhẹ / khôn phải thiết bị nào cũng dùng được
+            - bitmap : không nên dùng trên web
+            - svg : ảnh vector / nhẹ / và được tính trên công thức toàn học
+
+    kỹ thuật sprite image :
+        
+
+    @media query :
+    - Responsive 
+        Các loại màn hình 
+            Break points :
+            576px
+            768px
+            992px
+            1200px
+
+        screen : màn hình kỹ thuật sốt
+
+    Bootstrap:
+    CSS Framework: Code nhanh hơn
+                   Làm việc nhóm tốt hơn
+                   Disiger : Thiết kế theo boostrap
+                
+    Cài đặt Bootstrap:
+    - Thêm css và js vào trang
+
+    Cấu trúc của Bootstrap :
+    Container => row => coloumn
+    
+    Container 2 loại:
+     + Container
+     + Container-fluid: rộng 100%
+
+    Nesting :
+    Container => row => col => row => col
+
+    Các loại màn hình
+
+    Mobile first từ nhỏ lên lớn
+
+    + xs: <576px
+    + sm: >=576px
+    + md: >=768px
+    + lg: >=992px
+    + xl: >=1200px
+    + xxl: >=1400px
+    
+    Offset : đẩy 1 khối vào giữa
+    justify-conten
+    w100
+    h100
+    pt
+    pr
+    pb
+    pl
+    p
+    p-md-4
+    px : padding 2 bên 
+    py : padding chiều dọc
+
+    margin : 
+    m(number 1-5)
+    ....
+    m-lg-5
+    ml
+    mr
+    mt
+    mb
+    mx
+    my
+
+    border-0
+    
+    Màu:
+    -Primsry
+    -Secondary
+    -Success
+    -Danger
+    -Dark
+
+    sizing
+    - w-100
+    - w-75
+    - w-50
+    - w-25
+    - w-auto
+
+    Text
+    -Tex-center
+    -Text-left
+    -Text-right
+    -Text-justify
+    -Text-center
+    -Text-primary
+    -Text-dark
+
+    Display
+    d-[giá trị]
+    d-none : dispay - none
+    d-flex
+    d-block
+    d-inline
+    d-inline-block
+    d-(breakpoint) - (giá trị): d-lg-none
+    Từ nhỏ đến lớn
+    d-block d-lg-inline
+
+    Hệ thống lưới grid system:
+        12 cột
+
+
+====================================================================================================
+
+    Phần mới :
+        PSD HTML/CSS
+        Biết photoshop, adobe illustrator, figma
+
+        Giao diện photoshop :
+          - Menu bar
+          - Toolbar
+           + move tool: công cụ di chuển V
+           + selection tool: công cụ chọn M
+           + Ruler : ctrl R
+           + crop tool : C
+           + Zoom tool : Z
+           + hand tool : giữ phím cách hoặc là ấn phím H
+        
+        Rectable tool: Path tools
+        - Text tool: Công cụ chữ
+
+ ==============================================================================================
+
+        NPM, webpack, git
+
+        NPM: node package manege
+            - là phần mềm quản lý cá gói()
+            - cài đặt npm
+                - các câu lệnh cơ bản
+                 + cd thay đổi thư mục 
+                - window: cmd
+                - terminal : phần mêm hiển thị
+        - các thư mục đặc biệt
+                root : thư mục gốc
+                Home : của các use hiện tại ( ~ )
+                Bin : binary: chưa file chạy
+                    -path
+                touch[tạo file] 
+                mkdir : tạo thư mục 
+                cp copy filr
+                cp -r copy thư mục
+                mv di chuyển file 
+                man quản lý các lệnh
+                vi 
+                    - 2 chế độ
+                    + chế độ xem visual
+                    + chế độ sửa
+                init khởi tạo
+            
+            SSH : là phương thức để kết nối 2 máy tính với nhau
+                - sử dụng cặp khóa key pair
+                + public key : khóa công khai(ổ khóa)
+                + private : khóa bí mật(chìa khóa)
+                - Tạo key pari
+
+
+            Git
+                - là phần mềm quản lý versio code
+                - hỗ trợ làm việc nhóm
+                - Giống như 1 cây nhiều nhánh
+                - Phần trên server 
+                - Phần trên máy
+            Github:
+                - là 1 server Git 
+
+            Cài đặt Git
+                các khái niệm git
+                    -Repository : kho chứa = > mỗi project là 1 repo
+                        - 2 repo: remote và local
+                    - branch : nhanh
+
+                Các thao tác Git cơ bản
+                clone: khởi tạo local từ remote
+            - add:
+                - thay đổi trạng thái của file = > staget
+            - commit :
+                - stoge : ap dụng sự thay đổi lên local repo
+                
+
+
+
+ ==============================================================================================
+        JAVASCRIPT
+            là một ngôn ngữ chạy trên trình duyệt
+
+            
+            Varible(Biến) :
+            - Vùng bộ nhớ trên máy tính để lưu trữ 1 giá trị
+
+            var: biến toàn cục
+            let: biến cục bộ
+
+            - Hằng : 
+             + Cuzng như 1 biến nhưng mà khoong thể thay đổi
+             + thường thì người ta hay đặt tên hằng bằng chữ in hoa
+             const
+
+            Các kiểu dữ liệu trong JS :
+            - Chuỗi
+            - Number
+                - integer : dạng số nguyên
+                - float : số thực
+                - ...
+            - Array(mảng) :
+            Là 2 biến nhưng nó chứa được nhiều giá trị
+                - Index: chỉ mục
+
+                - Mản 2 hay nhiều chiều
+             * Các hàm hay dùng trong mảnh :
+                + Push(): thêm 1 hay nhiều thành phần vào cuối mảng
+                + Pop(): Bỏ đi phần tử cuối mảng và trả về phần tử vừa xóa
+                + shift(): bỏ đi phần tử ở đầu mảng về trả về phần tử vừa xóa
+                + Unshift(): thêm phần tử vào đầu mảng 
+                + sort(): sắp xếp tăng dần       
+                + reverse(): đảo ngược thứ tự của mảng
+                + shuffle(): ramdom thứ tự
+                + slice(): Cắt lấy phần tử ra nhưng mà không ảnh hưởng đến mảng gốc
+                + splice(): cắt lấy phần tử nhưng mà phần tử trong mảng lại mất đi
+                + map() : thay đổi 1 mảng 
+                + fitter(): Lọc các phần tử 
+                    - Nêu hàm trả về true thì lấy còn nếu trả về false thì bỏ qua
+                + find(): Tìm kiếm
+                    - trả về 1 phần tử đầu tiên tìm được
+                + reduce(fn, intialValue): Các hàm thực hiện liên tiếp nhau 
+            Boolean : là 1 biến mà chỉ chứa 2 giá trị là true hoặc false
+            Object : Đối tượng
+                - property: thuộc tính
+                 - Lấy ra thuộc tính dùng dấu chấm
+                 - Đối tượng Window là đối tượng to nhất
+                    + Window super object 
+            - null undefined NaN
+                - undefined : chưa khai báo
+                - null chưa có giá trị
+                - NaN : not a number
+
+            - Các hàm xử lý dữ liệu
+                + string
+            - hàm làm tròn:
+             + floor : làm tròn xuống
+             + ceil : hàm làm tròn lên
+             + round :tính từ .5 nếu trên .5 thì sẽ làm tròn lên còn không thì sẽ là ngược lại
+            - Hàm toán tử Math
+            - function, method :
+                + là tập hợp các câu lệnh 
+                + hàm không tự chạy và chạy khi được gọi
+            - tham số prarams, attribute
+                + là những cái biến từ bên ngoài vào hàm
+                + nhiều tham số thì cách nhau bằng dấu ,
+                + trong trường hợp có 1 tham số thì không cần dấu ngoặc chòn
+            - Giá chị mặc định chỉ khi dùng js builder
+            return : trả về
+            self-voking function 
+
+
+            - Hàm some() 
+                + Trả về true khi đi 1 phần qua hàm nếu điều kiện đúng 
+            - Hàm every() 
+                + Trả về true khi toàn bộ mảng đi qua hàm đều đúng
+            - hasOwnProperty()
+                + kiểm tra xem hàm có thành phần đó không
+            
+
+
+            Destructuring: 
+                - Phá vỡ 1 array hoặc object
+                - có thể đổi tên biến
+
+            Câu lệnh rẽ nhánh 
+            if(){
+
+            }
+            truthy / falesy
+            reuthy : Nếu mà object, array không rỗng , string không rỗng , number !=0
+            falsy : false, chuỗi rỗng NaN undefind
+            
+            Vòng lặp white luôn luôn phải đặt điều kiện
+            forEach : Lập qua tất cả các phần tử của mảng 
+                + không dùng được continue và break
+
+            for...in
+                - xử dụng cho object 
+                - lặp qua thuộc tính của object
+                - chỉ sử dụng được với các object đơn giản
+
+            for...of
+                - xử dụng cho các object phức tạp  map(), set()
+            
+            Tham chiếu và tham trị
+            - Tham chiếu : sẽ là tham chiếu khi kiểu dữ liệu của biến là object hoặc array
+            - Còn các kiểu dữ liệu khác thì là tham trị
+
+
+            spread operator: arry, object
+
+
+            git 
+            - github :
+            NPM :
+                npm init : tạo project
+                    file package.json file định dạng cấu hình
+                        scrript đây là lệnh được viết sẵn
+                        npm run ( Tên của script)
+                    npm install (Tên thư viện)
+                    npm remove : xóa 1 gói
+                    node modules : thư mục chứa các file thư viện
+                các package của npm
+                package của các package của các package
+                    2 loại : 
+                        - library : jquery, 
+                yarn :  
+                    - yarn add
+
+            Bundler : Công cụ chuyển đổi
+                - scss (sass) , less css => bundler => css
+                - js = > bundler => js(minified)
+            loader:
+                - là pluggin của bundler
+                - sas loader : loader của sass
+            Webpack, rollup
+                Webpack : bandler 
+                pipeline: đường ông dẫn nước
+
+================================================================================    
+                Javascript :
+                 createElement : thêm 1 thẻ vào html
+                 
+                Các thao tác với thẻ html :
+                    - getElementById('id') : lấy ra id => chỉ lấy đc 1 cái
+                        + lấy id thì có thể đặt style trực tiếp 
+                        + còn class thì bắt buộc phải lặp qua từng phần tử thì mới style đc
+                    - getElementsBytagName('') :  lấy ra tất cả các thẻ trong giống nhau trong html
+                    - lập qua các phần tử dùng spread operator
+                    - getElementsByClassName('') : lấy ra class
+                    - querySelector('') :trả về 1 thẻ
+                    - querySelectorAll('') : trả về nhiều thẻ và nó trả về cho mình 1 mảng 
+                        + Nodelist : forEach để lấy ra phần tủ
+                    - Có các DOM có sẵn:
+                        + body: document.body
+                        + head: document.head
+                        + images:document.images
+                        + links:document.links : Các thẻ a
+                        + Các thẻ form : 
+
+                    Thao tác sửa Css : 
+                        - .style
+                    Lấy ra giá trị thuộc tính
+                        - getAttribute(tên thuộc tính) : lấy giá trị thuộc tính
+                        - setAttribute (name, value) : đặt giá trị thuộc tính
+                        - removeAttribute (name) : Xóa thuộc tính
+                    innerText : sét text cho html
+                    innerHTML : Áp dụng các thẻ html
+                    classList : danh sách các class của html
+                        - remove() : xóa class
+                        - add() : thêm class
+                        - contains() : trả về true khi mà có class và false khi không có class
+                    Tạo ra element:
+                        - createElement : thêm thẻ 
+                        - append() : thêm được nhiều thẻ 
+                        - appendchild() : thêm thẻ
+                    Event :
+                     Tất cả các element trên trang web đều gắn với sự kiện
+                     - hover
+                     - click :
+                        + mouseDown 
+                        + mouseUp
+                        + mobile : touchTart, touchEnd
+                     - mousemove : di chuyển chuột trên element
+                     - mouseover : bên ngoài vào
+                     - mouseout : bên trong ra
+                     - forcus :  
+
+                     - document : 
+                        + DOMContentLoaded : file khi tải hết html
+                        + load : tải hết (images , fonts, css)
+                        
+                     - input : change , keyup, keydown
+                     addEventListener('event', function) 
+                    
+                     Cách để bắt sự kiện
+                        - Các sự kiện chính là các thuộc tính của object
+
+                    Các sự kiệ callback của sự kiện event
+                        - object Event :
+                        + preventDefault() xóa bỏ thuộc tính hiện tại
+========================================================================================
+
+
+                JS moduls :
+                - import export
+                    + export default : export 1 cái
+                    + export : export nhiều cái
+                    + import 
+
+                    
+                Lập trình hướng đối tượng
+                    - Cách viết code
+                    - Không phải của riêng ngôn ngữ nào
+                    - cách tư duy về code
+                    - chương trình sẽ được tạo bởi đối tượng class  
+                    - các đối tượng tương tác với nhau thì chương trình hoạt động
+
+                Class : lớp => giống như bản thiết kế của đối tượng, bản mô tả
+                        - trong class có các Hàm(method)
+                        - thuộc tính:property
+                        - constructor function: Hàm khởi tạo
+                                                + Và được chạy ngay khi khởi tạo
+                Object :
+                    - KHỏi tạo đối tượng : new[Tên class]
+                
+                this :
+                    - object: chính là object hiện tai
+
+                Kế thừa (extends)
+                    - class có tất cả các hàm và thuộc tính của class bố
+                    - overide: ghi đè
+                    - super :  gọi lên constructor của class cha
+
+
+                Bất đồng bộ in js
+                    - Đồng bộ 
+                    - Bất đồng bộ
+
+                Callback
+                    - Hàm sẽ được gọi lại sau khi có 1 sự kiện nào đó được xảy ra
+                Call API
+                    - là 1 ngôn ngữ cho phép các ứng dụng giao tiếp với nhau
+                - url : là 1 EndPoint
+
+                Promise
+                    - có 2 kiểu 
+                        + resolve(Thành công)
+                        + reject(Thất bại)
+
+
+            * Đọc hiểu
+            js hosting
+            this
+            location API
+            history API
+            worker API
+                - dịch vụ chạy nên : chạy file ẩn
+                - làm web chạy ofline
+                - chỉ chạy có https(http secury)
+            
+            - notification api
+            cors : lỗi hay gặp nhất của font-end
+            Thử làm 1 upload file
+
+
+
+
+                    
+         -->
+
+
+
+    </body>
+    <div id="box">
+        Phan bá đức
+    </div>
+    <script src="k2.js"></script>
+    
+</body>
+
+</html>

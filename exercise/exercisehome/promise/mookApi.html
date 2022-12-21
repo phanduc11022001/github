@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./mookApi.css">
+    <title>Document</title>
+    
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+    h1{
+        text-align: center;
+    }
+     td:hover {
+        cursor: pointer;
+    }
+    #resgitor {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        margin-top: -158px;
+        display: none;
+    }
+    #main {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color:tomato ;
+    }
+    #main h2 {
+        text-align: center;
+        padding: 0 10px;
+    }
+    #main input {
+        display: inline-block;
+        width: 80%;
+    }
+    .input-name {
+        margin:  10px 0;
+    }
+    .more{
+        width: 150px;
+        height: 35px;
+        margin: 0 auto;
+        display: block;
+        border-radius: 20px;
+        border: none;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+    .more:hover {
+        background-color: rgb(43, 70, 156);
+    }
+    #create{
+        margin: 10px 0;
+    }
+    table{
+        margin: 0 auto;
+        margin-top:60px ;
+    }
+    #close {
+        display: block;
+        margin: 0 auto;
+        margin-top: 170px;
+        cursor: pointer;
+    }
+    #search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        
+    }
+    #search input {
+        outline: none;
+    }
+    
+    #search button{
+        cursor: pointer;
+        margin: 0 10px;
+        
+    }
+</style>
+<body>
+    <h1>Danh sách người dùng</h1>    
+    <button class="more">Thêm người dùng</button>
+    <div id="search">
+        <input
+         type="text"
+         name="search"
+         placeholder="Search..."
+         >
+        <button id="searchBtn">Search</button>
+    </div>
+    <div id="resgitor" >
+        <button id="close">Close</button>
+        <div id="main">
+        <h2>Nhập thông của bạn</h2>
+    <input class="input-name"
+            type="text"
+            name="name"
+            placeholder="Name"
+        >
+        <input 
+        type="text"
+        class="input-name"
+        name="fullname"
+        placeholder="Full Name"
+    >
+    <button id="create">Thêm thông tin</button>
+    <button id="update" style="display: none ;">Update</button>
+    </div>
+</div>
+    <table
+        cellpadding="15"
+        cellspacing="0"
+        border="1"
+        id="root">
+        
+    </table>
+
+</body>
+<script type="module" src="./script.js"></script>
+
+</html>

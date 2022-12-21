@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      display: none;
+    }
+    input[type="radio"]:checked + div {
+      display: block;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <body>
+    <input type="radio" name="slice" id="slice1" />
+    <div>
+      <img src="./img/anh-dep-nhat-the-gioi-ve-thien-nhien.jpg" alt="" />
+      <label for="slice2">next</label>
+    </div>
+    <input type="radio" name="slice" id="slice2" />
+    <div>
+      <img src="./img/hinh-anh-dep-thien-nhien.jpg" alt="" />
+      <label for="slice3">next</label>
+    </div>
+
+    <input type="radio" name="slice" id="slice3" />
+    <div>
+      <img src="./img/hinh-nen-phong-canh-thien-nhien-mua-xuan-19.jpg" alt="" />
+      <label for="slice4">next</label>
+    </div>
+    <input type="radio" name="slice" id="slice4" />
+    <div>
+      <img src="./img/ve-dep-ki-dieu-cua-thien-nhien-3.jpg" alt="" />
+      <label for="slice1">next</label>
+    </div>
+  </body>
+</html>

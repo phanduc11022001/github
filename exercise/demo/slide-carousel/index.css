@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slide-item{
+    width: 100vw;
+    height:2100px;
+    position: relative;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    
+}
+
+.slide-item::before{
+    content: "";
+    display: block;;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.slide-item-one {
+    background-image: url(./image/adam-jaime-dmkmrNptMpw-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.slide-item-two {
+    background-image: url(./image/ash-edmonds-96EOKC5d200-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.slide-item-three {
+    background-image: url(./image/ash-edmonds-SSh9jI6sw-I-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.slide-item-four {
+    background-image: url(./image/stanislav-ivanitskiy-j5SwUbcgeyA-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.owl-prev {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: white !important;
+    font-size: 90px !important;
+}
+.owl-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: white !important;
+    font-size: 90px !important;
+}
+.owl-next ,  .owl-prev:hover {
+    background:none !important;
+}
+.owl-dots {
+    display: none;
+}
+.menu{
+    background-color: rgba(0, 0, 0, 0.4);
+    position:fixed;
+    margin-top: 10px;
+    color: yellow;
+    font-size: 50px;
+    z-index: 1999;
+}
+.menu ul {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu ul  li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}

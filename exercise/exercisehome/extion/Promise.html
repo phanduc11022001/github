@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Ttry your best</h1>
+        <ul id="comment"></ul>
+</body>
+<script>
+    const postApi = 'http://localhost:3000/courses'
+    fetch(postApi) 
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(response) {
+           var htmls = response.map(function(post) {
+            return `
+                // <li>${post.id}</li>
+                <li>${post.name}</li>
+                <li>${post.description}</li>
+                
+                `
+           })
+           var html = htmls.join('')
+           document.querySelector('#comment').innerHTML = html
+        })
+</script>
+</html>

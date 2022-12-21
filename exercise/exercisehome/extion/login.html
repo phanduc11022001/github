@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+
+    }
+
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content {
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 703px;
+        overflow: hidden;
+        box-shadow: 0px 11px 29px -4px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 0px 4px 19px -4px rgba(0, 0, 0, 0.5);
+    }
+
+    .content::after {
+        clear: both;
+    }
+
+    .sing-in {
+        width: 50%;
+    }
+
+    .sing-in>h2 {
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 45px;
+        margin-bottom: 15px;
+        font-size: 40px;
+        font-weight: 500;
+    }
+
+    .sing-in>.sing-in-item {
+        display: flex;
+        justify-content: center;
+    }
+
+    .sing-in>.sing-in-item>a {
+        padding: 0px 10px 10px 10px;
+        text-decoration: none;
+        font-size: 25px;
+    }
+
+    .input_email {
+        padding: 4px 0px 4px 30px;
+    }
+
+    .sing-in-item>a:hover {
+        color: #5f88b1;
+        transition: 0.3s;
+    }
+
+    input {
+        border: none;
+        outline: none;
+        width: 150px;
+        height: 30px;
+        padding: 16px 15px;
+        margin-top: 13px;
+        font-size: 15px;
+
+    }
+
+    form>a {
+        text-decoration: none;
+        display: block;
+        font-size: 18px;
+        padding: 26px 86px;
+
+    }
+
+    form>button {
+        display: block;
+        margin: 0 auto;
+        width: 85px;
+        height: 35px;
+        border-radius: 18px;
+        background-color: #86bedc;
+        color: #fff;
+        text-transform: uppercase;
+        border: none;
+        line-height: 35px;
+        margin-bottom: 25px;
+        cursor: pointer;
+    }
+
+    .sign-up-hug>button:hover,
+    form>button:hover {
+        background-color: #fff;
+        color: #2e6ba9;
+        border: 1px solid #2e6ba9;
+        transition: 0.3s;
+    }
+
+    .sign-up {
+        width: 50%;
+        text-align: center;
+        background-color: #b8c9da;
+        height: 387px;
+    }
+
+    .sign-up>h2 {
+        font-size: 40px;
+        padding: 30px 0px;
+        margin-top: -36px;
+    }
+
+    .sign-up-hug {
+        display: grid;
+        justify-content: center;
+        width: 100%;
+        height: 374px;
+        align-content: center;
+    }
+
+    .sign-up-hug>h2 {
+        color: #fff;
+        font-size: 40px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 0px 0px 20px 0px;
+    }
+
+    .sign-up-hug>span {
+        font-size: 18px;
+        padding: 0px 0px 35px 0px;
+        color: #4e6879;
+    }
+
+    
+    
+    .sign-up-hug>button {
+        background-color: #86bedc;
+        width: 173px;
+        height: 36px;
+        border-radius: 19px;
+        color: #fff;
+        border: none;
+        outline: none;
+        line-height: 36px;
+        margin: 0 auto;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+    <div class="content">
+        <div class="sing-in">
+
+            <h2>sign in</h2>
+            <div class="sing-in-item">
+                <a href="">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="">
+                    <ion-icon name="logo-google"></ion-icon>
+                </a>
+                <a href="">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </div>
+            <form action="" method="post">
+                <div class="input_email">
+                    <input type="text" name="UserEmail" required placeholder="User Email">
+                </div>
+                <div class="input_email">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <a href="#">Forgot your password?</a>
+                <button>sing in</button>
+            </form>
+        </div>
+        <div class="sign-up">
+            <div class="sign-up-hug">
+                <h2>sign up</h2>
+                <span>sing up if here if you don't have account</span>
+                <button>sing up</button>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body ">
+        <input
+        type="text"
+        placeholder="search"
+        id="create" 
+        name="name"
+        />
+        <br>
+        <button id="createBtn">Create</button>
+        <button style="display: none;" id="save">Save</button>
+        <button id="search">Search</button>
+        
+    <table
+    cellpadding="15"
+    cellspacing="1"
+    border="1"
+    id="table"></table>
+    
+        
+</body>
+
+
+<script >
+    let users = []
+    let currenPage = 1
+    let perPage = 3
+    let totalPage = 0
+    let perUsers = []
+    const coursesApi = ' http://localhost:3000/courses'
+
+    // start Aplication
+    function start() {
+        getCourses(renderCourses)
+        handleCreateCourses()
+        getCourses(searchCourse)
+    }
+
+    start()
+
+    // function xử lý 
+
+    function getCourses(callback) {
+        fetch(coursesApi)
+            .then(response => {
+              return  response.json();
+            })
+            .then(callback)
+    }
+
+    // create a new
+    function createCourse(data , callback) {
+        var option = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+            body: JSON.stringify(data),
+        }
+        fetch(coursesApi, option)
+            .then(function(response) {
+                    return response.json();
+                })
+            .then(callback)
+        }
+        function handleCreateCourses() {
+            const createBtn = document.querySelector('#createBtn')
+            createBtn.onclick = function() {
+                const name = document.querySelector('input[name="name"]').value
+                let dataForm = {
+                    name : name
+                }
+                createCourse(dataForm, function() {
+                    getCourses(renderCourses)
+                    clear()
+                })
+            }
+        }
+    
+
+    // Delete a course
+    function handleDleteCourse(id) {
+        fetch(coursesApi + '/' + id, {method: 'DELETE'})
+            .then(response => {
+              return  response.json()
+            })
+            .then(response => {
+                const deleteUseId = document.querySelector('.list-course-' + id)
+                deleteUseId.remove()
+            })
+    }
+
+    // Edit a course
+    function updateCourses(data, callback) {
+        var option = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+            body: JSON.stringify(data),
+        }
+        fetch(coursesApi + '/' + data.id, option)
+            .then(function(response) {  
+                    return response.json();
+                })
+            .then(callback)
+    }
+
+    function handleEditCourse(id) {
+        var saveBtn = document.querySelector('#save')
+        var courseItembtn = document.querySelector('.list-course-' + id)
+        var dataById = { 
+            name : courseItembtn.querySelector('h4').innerText
+        } 
+        document.querySelector('input[name="name"]').value = dataById.name,
+        saveBtn.style.display = "block"
+        
+        saveBtn.onclick = function() {
+            var dataForm = {
+                id : id,
+                name :  document.querySelector('input[name="name"]').value,
+            }
+            if (dataForm.name === '') {
+                return
+            }
+            updateCourses(dataForm ,function() {
+                getCourses(renderCourses)
+                clear()
+                saveBtn.style.display = "none";
+            })
+        }
+
+    }
+
+    // Search 
+    function searchCourse(coursesUse) {
+        const searchBtn = document.querySelector('#search')
+        searchBtn.onclick = function() {
+        let valueSearch = document.querySelector('input[name="name"]').value
+            let userSearch = coursesUse.filter(value => {
+                return value.name.toUpperCase().includes(valueSearch.toUpperCase())
+            })
+            renderCourses(userSearch)
+            clear()
+        }
+    }
+
+    // render
+    function renderCourses(perUsers) {
+        console.log(perUsers)
+        let html = ''
+        perUsers.map(course => {
+            return html +=
+                `
+                <tr class="list-course-${course.id}">
+                    <td>${course.id}</td>    
+                   <td> <h4>${course.name}</h4> </td>
+                   <td onclick=(handleDleteCourse(${course.id}))>Delete </td>
+                    <td onclick=(handleEditCourse(${course.id}))>Edit</td>
+                </tr>
+                `
+        })
+        document.querySelector('#table').innerHTML = html
+    }
+
+    function clear() {
+        let nameuse = document.querySelector('input[name="name"]').value = ''
+    }
+    
+    
+</script>
+</html>

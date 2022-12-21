@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .post li {
+        list-style: none;
+    }
+</style>
+<body>
+        <async apiUrl ="http://localhost:3000/post">
+                <div>
+                    <span>${title}</span>
+                    <span>${posts}</span>
+                </div>
+        </async>
+
+
+        <FromPro apiUrl="http://localhost:3000/post">
+            <div>
+                <input type="text" id="title" name="text">
+            </div>
+            <div>
+                <textarea name="content"></textarea>
+            </div>
+            <button id="create">Đăng bài</button>
+        </FromPro> 
+
+        <!-- <FromPro apiUrl="http://localhost:3000/atical">
+            <div>
+                <input type="text" id="title" name="text">
+            </div>
+            <div>
+                <textarea name="content"></textarea>
+            </div>
+            <button id="create">Đăng bài</button>
+        </FromPro>  -->
+
+        <!-- <FromPro apiUrl="http://localhost:3000/user">
+            <div>
+                <input type="text" id="title" name="text">
+            </div>
+            <div>
+                <textarea name="content"></textarea>
+            </div>
+            <button id="create">Đăng bài</button>
+        </FromPro>  -->
+
+</body>
+<script src="./index.js"></script>
+</html>

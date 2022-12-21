@@ -1,0 +1,37 @@
+body {
+    font-size: 30px;
+}
+#container{
+    width: 1200px;
+    margin: 50px auto;
+}
+#list {
+    display: grid;
+    grid-template-columns: auto auto auto ;
+}
+.item {
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:  10px;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+}
+.fillter label{
+    cursor: pointer;
+}
+input[name="grid"][value="1"]:checked ~ #list{
+    grid-template-columns: auto;
+}
+input[name="grid"][value="2"]:checked ~ #list{
+    grid-template-columns:auto auto;
+}
+input[name="grid"][value="3"]:checked ~ #list{
+    grid-template-columns:auto auto auto;
+}
+input[name="grid"][value="4"]:checked ~ #list{
+    grid-template-columns:auto auto auto auto;
+}

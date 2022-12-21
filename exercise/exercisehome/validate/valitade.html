@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload=" renderstuden() ">
+    <div class="form">
+        <div class="form-group>
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-input">
+            <div class="error-message"></div>
+        </div>
+
+        <div class="form-group>
+            <label for="address">Address</label>
+            <input type="text" id="address" class="form-input">
+            <div class="error-message"></div>
+        </div>
+
+        <div class="form-group>
+            <input type="hidden" id="index">
+        </div>
+        <button id="save" onclick="addNew()">Add New</button>
+        <button id="update" onclick="changeStuden()" style="display: none;">Save</button>
+    </div>
+    <table border="1" cellpading="15" cellspacing="0" id="tableConten">
+        
+    </table>
+</body>
+<script>
+
+    function clear() {
+        document.getElementById('name').value = ''
+        document.getElementById('address').value = ''
+    }
+
+    function validateformInput() {
+        let formElement = document.querySelector('.form')
+        let inputElement = formElement.querySelectorAll('.form-input')
+        for(var i = 0 ; i < inputElement.length ; i++) {
+            if(inputElement[i].value === '') {
+               inputElement[i].parentElement.querySelector('.error-message').innerText = `Please enter your ${inputElement[i].id}`
+            } 
+            else {
+                inputElement[i].parentElement.querySelector('.error-message').innerText = ''
+            }
+        }
+    }
+
+    function addNew() {
+        validateformInput()
+        let formElement = document.querySelector('.form')
+        let erroElement = formElement.querySelectorAll('.error-message')
+        let arrErroElement = []
+        for(var i = 0 ; i < erroElement.length ; i++) {
+            arrErroElement.push(erroElement[i].innerText)
+        }
+        let checkErroElement = arrErroElement.every(value => value === '')
+        if(checkErroElement) {
+            let name = document.getElementById('name').value
+            let address = document.getElementById('address').value
+            let listStudent = localStorage.getItem('list-item') ? JSON.parse(localStorage.getItem('list-item')) : []
+            listStudent.push({
+                name : name,
+                address : address
+            })
+            localStorage.setItem('list-item', JSON.stringify(listStudent))
+            renderstuden()
+            clear()
+        }
+    }
+
+    function renderstuden() {
+        let listStudent = localStorage.getItem('list-item') ? JSON.parse(localStorage.getItem('list-item')) : []
+        let student = 
+            `
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            `
+
+            listStudent.map((value, index) => {
+                student += 
+                    `
+                    <tr>
+                    <td>${index + 1}</td>
+                    <td>${value.name}</td>
+                    <td>${value.address}</td>
+                    <th>
+                            <button onclick="editStudent(${index})">Edit</button>
+                            <button onclick="deleteStudent(${index})">Delete</button>
+                    </th>
+                </tr> 
+                    `
+            })
+            document.getElementById('tableConten').innerHTML = student
+    }
+
+    function editStudent(index) {
+        let listStudent = localStorage.getItem('list-item') ? JSON.parse(localStorage.getItem('list-item')) : []
+        document.getElementById('name').value = listStudent[index].name
+        document.getElementById('address').value = listStudent[index].address
+       const a = document.getElementById('index').value = index
+
+        document.getElementById('save').style.display = 'none'
+        document.getElementById('update').style.display = 'inline-block'
+    }
+
+    function changeStuden() {
+        let listStudent = localStorage.getItem('list-item') ? JSON.parse(localStorage.getItem('list-item')) : []
+        let index = document.getElementById('index').value
+        listStudent[index] = {
+            name : document.getElementById('name').value,
+            address : document.getElementById('address').value
+        }
+        localStorage.setItem('list-item', JSON.stringify(listStudent))
+        renderstuden()
+        document.getElementById('save').style.display = 'inline-block'
+        document.getElementById('update').style.display = 'none'
+        clear()
+    }
+
+    function deleteStudent(index) {
+        let listStudent = localStorage.getItem('list-item') ? JSON.parse(localStorage.getItem('list-item')) : []
+        if(confirm("are you sure ?")){
+        listStudent.splice(index, 1)
+        }
+        localStorage.setItem('list-item', JSON.stringify(listStudent))
+        renderstuden()
+    }
+</script>
+</html>

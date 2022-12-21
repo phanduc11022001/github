@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .wraper{
+        width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        justify-content: space-between;
+    }
+    .image{
+        width: 22%;
+        height: 200px;
+        overflow: hidden;;
+        margin: 20px 0;
+       
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        object-fit: cover;
+        transition: 0.5s;
+        object-position: center;
+    }
+    .image:hover img{
+        transform: scale(1.2);
+    }
+    .galley {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        pointer-events: none;
+        opacity: 0;
+        transition: 0.5s;
+        transform: scale(0.8);
+    }
+    .gallet__inner {
+        display: flex;
+        justify-content: center;
+    }
+
+    .gallet__inner img{
+        width: 70%;
+    }
+    .close {
+        position: fixed;
+        top: 15px;
+        right: 20px;
+    }
+    .control {
+        position: absolute;
+        font-size: 35px;
+    }
+    .control.prev{
+        right: 20px;
+    }
+    .control.next {
+        left: 20px;
+    }
+    .show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+    }
+    .hide{
+        display: none;
+    }
+</style>
+<body>
+    <div class="wraper">
+        <!--sile ảnh hover tranfom scale-->
+        <div class="image">
+            <img src="./image/birger-strahl-1XhmIcBB-EA-unsplash.jpg" alt="">
+        </div>
+         <!--sile ảnh hover tranfom scale-->
+        <div class="image">
+            <img src="./image/birger-strahl-3InpzCex198-unsplash.jpg" alt="">
+        </div>
+         <!--sile ảnh hover tranfom scale-->
+         <div class="image">
+            <img src="./image/birger-strahl-hesJq5WhaSA-unsplash.jpg" alt="">
+        </div>
+         <!--sile ảnh hover tranfom scale-->
+         <div class="image">
+            <img src="./image/birger-strahl-1XhmIcBB-EA-unsplash.jpg" alt="">
+        </div>
+         <!--sile ảnh hover tranfom scale-->
+         <div class="image">
+            <img src="./image/tim-depickere-E2z5GsWfOvg-unsplash.jpg" alt="">
+        </div>
+         <!--sile ảnh hover tranfom scale-->
+         <div class="image">
+            <img src="./image/tim-depickere-sNkyekyBxgk-unsplash.jpg" alt="">
+        </div>
+         <!--sile ảnh hover tranfom scale-->
+         <div class="image">
+            <img src="./image/birger-strahl-1XhmIcBB-EA-unsplash.jpg" alt="">
+        </div>
+         <!--sile ảnh hover tranfom scale-->
+         <div class="image">
+            <img src="./image/tim-depickere-E2z5GsWfOvg-unsplash.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="galley">
+        <i class="fa-regular fa-xmark close"></i>
+        <div class="gallet__inner">
+            <img src="./image/birger-strahl-1XhmIcBB-EA-unsplash.jpg" alt="">
+        </div>
+        <div class="control prev">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+        <div class="control next">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+    </div>
+</body>
+<script>
+    const images = document.querySelectorAll('.image img')
+    const prev = document.querySelector('.prev')
+    const next = document.querySelector('.next')
+    const close = document.querySelector('.close')
+    const galleyImg = document.querySelector('.gallet__inner img')
+    const galley = document.querySelector('.galley')
+
+    var currenIndex = 0
+
+    function showGalley() {
+        if (currenIndex == 0) {
+            next.classList.add('hide')
+        }
+        else {
+            next.classList.remove('hide')
+        }
+        if (currenIndex == images.length -1) {
+            prev.classList.add('hide')
+        }
+        else {
+            prev.classList.remove('hide')
+        }
+        galleyImg.src = images[currenIndex].src
+        galley.classList.add('show')
+    }
+
+    images.forEach((item, index) => {
+        item.addEventListener('click', () =>{
+            currenIndex  = index
+            showGalley()
+           
+        })
+    })
+    close.addEventListener('click', () =>{
+        galley.classList.remove('show')
+    })
+    document.addEventListener('keydown', (e) =>{
+        if(e.keyCode == 27) {
+            galley.classList.remove('show')
+        }
+    })
+    next.addEventListener('click', () =>{
+        if (currenIndex > 0) {
+            currenIndex --
+            showGalley()
+        }
+    })
+    prev.addEventListener('click', () =>{
+        if (currenIndex < images.length -1) {
+            currenIndex ++
+            showGalley()
+        }
+    })
+</script>
+</html>

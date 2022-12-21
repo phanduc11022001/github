@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Try your best</h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"
+          integrity="sha512-OdkysyYNjK4CZHgB+dkw9xQp66hZ9TLqmS2vXaBrftfyJeduVhyy1cOfoxiKdi4/bfgpco6REu6Rb+V2oVIRWg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+<script>
+  async function getUser() {
+    try{
+      let data = axios.get(' http://localhost:3000/courses')
+      return data
+    }catch(e) {
+      console.log(e);
+    }
+    
+  }
+  getUser()
+      .then(data => {
+        console.log(data)
+      })
+</script>
+</html>

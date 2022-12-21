@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+div {
+    width: 100px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+div ul li{
+    list-style: none;
+    padding: 10px;
+}
+div ul li a{
+    text-decoration: none;
+    width: 100%;
+}
+div ul {
+    background-color: blueviolet;
+    position: relative;
+}
+
+div ul li ul {
+    position: absolute;
+    display: none;
+    background-color: blueviolet;
+    left: 100%;
+    top: 0;
+    
+}
+div ul li:hover ul{
+    display: block;
+}
+
+/*menu cấp 2*/
+
+div ul li ul li ul li{
+    display: none;
+
+}
+div ul li ul li:hover ul li{
+    display: block;
+}
+/* menu c3*/
+div ul li ul li ul li ul {
+    display: none;
+}
+
+div ul li ul li ul li ul:hover li {
+    display: block;
+} 
+
+div ul li ul li ul li ul ul li ul li{
+    display: none;
+}
+div ul li ul li ul li ul ul li:hover {
+    display: block;
+}

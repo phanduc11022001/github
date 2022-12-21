@@ -1,0 +1,10 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#prev-next-play{
+    width: 200px;
+    justify-content: space-between;
+     display: flex;
+     
+}

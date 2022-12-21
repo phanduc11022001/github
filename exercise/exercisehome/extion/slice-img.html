@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #container {
+    width: 500px;
+    height: 300px;
+  }
+  #container img {
+    width: 200px;
+  }
+</style>
+<body onload="loadImages()">
+    <div id="container">
+      <div class="title">Bộ sưu tầm ảnh</div>
+      <hr>
+      <div class="sliceshow">
+        <div class="prev" onclick="prev()">prev</div>
+        <img src="../image/img1.jpg" id="image" class="image" alt="">
+        <div class="next" onclick="next()">Next</div>
+        <div class="caption" id="caption">Ảnh 1/2</div>
+      </div>
+    </div>
+</body>
+<script>
+  const imageName = [
+    "../image/img1.jpg",
+    "../image/img2.jpg",
+  ]
+  let images = []
+  let postion = -1
+  function loadImages() {
+    for(const name of imageName) {
+      const img = new Image()
+      img.src = name
+      images.push(img)
+    }
+  }
+  function next() {
+    if(postion == images.length - 1) {
+      postion = 0
+    }else {
+      postion ++
+    }
+
+    document.querySelector('#image').src = images[postion].src
+    document.querySelector('#caption').innerText = 
+    "Ảnh" + (postion + 1) + '/' + images.length
+  }
+  function prev() {
+    if(postion == images.length - 1) {
+      postion = 0
+    }else {
+      postion ++
+    }
+
+    document.querySelector('#image').src = images[postion].src
+    document.querySelector('#caption').innerText = 
+    "Ảnh" + (postion + 1) + '/' + images.length
+  }
+  
+</script>
+</html>

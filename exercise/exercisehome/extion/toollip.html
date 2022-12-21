@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+
+    
+    .tooltip_right{
+        width: 100%;
+        margin-top: 100px;        
+        
+    }
+    .tooltip_right ul li{
+        margin: 0 auto;
+        width: 130px;
+        text-align: center;
+        background-color: #6c757d;
+        color: #fff;
+        padding: 5px;
+        list-style: none;
+        border: 1px solid red;
+        border-radius: 3px;
+        position: relative;
+    }
+    .tooltip_right ul li:hover ul {
+        display: block;
+    }
+    .tooltip_right ul li ul {
+        position: absolute;
+        left: -1px;
+        display: none;
+        margin-top: -67px;
+    }
+    .tooltip_right ul li ul ::after{
+    content: "";
+    border-width: 11px 11px;
+    border-style: solid;
+    border-color: black transparent    transparent   transparent !important;
+    position: absolute;
+    top: 29px;
+    left: 53px;
+    }
+
+</style>
+<body>
+
+    
+    
+    <div class="tooltip_right">
+        <ul>
+            <li>Tooltip on top
+                <ul>
+                    <li>Tooltip on top</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body> 
+</html>
